@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -9,19 +9,26 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
-      </div>
-    </ion-item>
-  </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
-    </div>
-  -->
+<ion-content padding>
+    <ion-card *ngIf="selectedCountries.length == 0">
+        <ion-card-content text-center>
+            You do not have any visited countries.
+        </ion-card-content>
+    </ion-card>
+
+    <ion-list>
+        <ion-card *ngFor="let c of getFilteredCountries()">
+        <ion-item  href="/country/{{c.code}}">
+            <ion-avatar slot="start">
+                <img [src]="c.flag">
+            </ion-avatar>
+            <ion-label>{{c.name}}</ion-label>
+
+            <!-- <ion-checkbox slot="end" [(ngModel)]="c.isChecked"></ion-checkbox> -->
+
+            <ion-icon slot="end" name="arrow-forward"></ion-icon>
+        </ion-item>
+        </ion-card>
+    </ion-list>
+
 </ion-content>

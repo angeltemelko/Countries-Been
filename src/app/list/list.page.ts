@@ -1,39 +1,43 @@
 import { Component, OnInit } from '@angular/core';
+import {CountriesServiceService} from '../services/countries-service.service';
+import {Storage} from '@ionic/storage';
 
 @Component({
   selector: 'app-list',
   templateUrl: 'list.page.html',
   styleUrls: ['list.page.scss']
 })
+
 export class ListPage implements OnInit {
-  private selectedItem: any;
-  private icons = [
-    'flask',
-    'wifi',
-    'beer',
-    'football',
-    'basketball',
-    'paper-plane',
-    'american-football',
-    'boat',
-    'bluetooth',
-    'build'
-  ];
-  public items: Array<{ title: string; note: string; icon: string }> = [];
-  constructor() {
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+
+  public hasFinishedLoading: boolean = false;
+  public numberOfVisitedCountries: number = 0;
+
+  private allCountries: any[] = [];
+  public selectedCountries: any[] = [];
+
+  constructor(
+      private countriesService: CountriesServiceService,
+      private storage: Storage
+  ) {
+    this.allCountries = this.countriesService.getAllCountries();
+
+    this.storage.get('selected-countries').then((list) => {
+
+      if(!list) {
+        return;
+      }
+
+      this.selectedCountries = list;
+
+    });
   }
 
   ngOnInit() {
+
   }
-  // add back when alpha.4 is out
-  // navigate(item) {
-  //   this.router.navigate(['/list', JSON.stringify(item)]);
-  // }
+
+  getFilteredCountries() {
+    return this.allCountries.filter(c => this.selectedCountries.includes(c.code));
+  }
 }

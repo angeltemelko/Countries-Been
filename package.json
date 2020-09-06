@@ -13,6 +13,7 @@
   },
   "private": true,
   "dependencies": {
+    "@amcharts/amcharts3-angular": "^2.2.3",
     "@angular/common": "~7.0.0",
     "@angular/core": "~7.0.0",
     "@angular/forms": "~7.0.0",
@@ -20,17 +21,37 @@
     "@angular/platform-browser": "~7.0.0",
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/router": "~7.0.0",
+    "@ionic-native/android-fingerprint-auth": "^5.0.0-beta.22",
+    "@ionic-native/camera": "^5.0.0",
     "@ionic-native/core": "5.0.0-beta.21",
+    "@ionic-native/image-picker": "^5.0.0",
     "@ionic-native/splash-screen": "5.0.0-beta.21",
     "@ionic-native/status-bar": "5.0.0-beta.21",
-    "@ionic/angular": "4.0.0-beta.17",
+    "@ionic/angular": "^5.0.4",
+    "@ionic/storage": "^2.2.0",
+    "amcharts3": "^3.21.14",
+    "com-sarriaroman-photoviewer": "1.2.0",
+    "cordova-android": "^7.1.4",
+    "cordova-plugin-android-fingerprint-auth": "1.5.0",
+    "cordova-plugin-camera": "4.0.3",
+    "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-file": "6.0.1",
+    "cordova-plugin-file-transfer": "1.7.1",
+    "cordova-plugin-ionic-keyboard": "^2.1.3",
+    "cordova-plugin-ionic-webview": "^2.3.1",
+    "cordova-plugin-splashscreen": "^5.0.2",
+    "cordova-plugin-statusbar": "^2.4.2",
+    "cordova-plugin-telerik-imagepicker": "2.2.3",
+    "cordova-plugin-whitelist": "^1.3.3",
+    "cordova-sqlite-storage": "2.6.0",
     "core-js": "^2.5.4",
+    "date-fns": "latest",
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
-    "@angular-devkit/architect": "~0.10.0",
-    "@angular-devkit/build-angular": "~0.10.0",
+    "@angular-devkit/architect": "^0.1001.0",
+    "@angular-devkit/build-angular": "^0.10.0",
     "@angular-devkit/core": "~7.0.0",
     "@angular-devkit/schematics": "~7.0.0",
     "@angular/cli": "~7.0.0",
@@ -38,9 +59,9 @@
     "@angular/compiler-cli": "~7.0.0",
     "@angular/language-service": "~7.0.0",
     "@ionic/angular-toolkit": "~1.2.0",
-    "@types/node": "~10.12.0",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~10.12.0",
     "codelyzer": "~4.5.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
@@ -49,10 +70,31 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "node-sass": "^4.14.1",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.1.6"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-android-fingerprint-auth": {},
+      "cordova-sqlite-storage": {},
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-webview": {
+        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
+      },
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-telerik-imagepicker": {},
+      "cordova-plugin-camera": {},
+      "cordova-plugin-file-transfer": {}
+    },
+    "platforms": [
+      "android"
+    ]
+  }
 }
