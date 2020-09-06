@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <div text-center>
+    <img style="width: 20%" height="5%" src="\assets\img\logo1.png">
+  </div>
+
+  <form [formGroup]="loginForm">
+    <ion-item>
+    <ion-input formControlName="email" [(ngModel)]="user" required type="email" placeholder="Email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input formControlName="password" [(ngModel)]="pass" required type="password" placeholder="Password"></ion-input>
+    </ion-item>
+
+    <ion-button size="block" (click)="login()" color="primary">
+      <span *ngIf="alreadySigned">Login</span>
+      <span *ngIf="!alreadySigned">Register</span>
+    </ion-button>
+  </form>
+
+  <div padding-top>
+    <div text-center *ngIf="isFingerprintAvailable">
+      <img src="\assets\img\fingeros.png" style="width: 80px;" (click)="checkFingerprint()">
+      <div>
+        Tap here for fingerprint
+      </div>
+    </div>
+
+    <div text-center *ngIf="!isFingerprintAvailable">
+      <img src="\assets\img\nofingerprint.png" style="width: 80px;">
+      <div>
+        There is no fingerprint support
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+
+
+</ion-content>

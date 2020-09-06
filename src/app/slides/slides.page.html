@@ -1,0 +1,65 @@
+<ion-content>
+  <ion-slides align-items-center #slides pager="true" class="fullscreen-slides" style="height: 100%">
+
+    <ion-slide padding>
+      <div style="height: 100%">
+        <h1>Do you like traveling?</h1>
+
+        <div text-center>
+          <img style="width: 100%" src="\assets\6gpeHo.jpg">
+        </div>
+        <p>
+          Have you ever wondered in how many places you have been?
+          <br />
+          With this app you can track the countries you have visited.
+        </p>
+      </div>
+    </ion-slide>
+
+    <ion-slide padding>
+      <div style="height: 100%">
+        <h1>Where have you been?</h1>
+
+        <div text-center>
+          <img style="width: 100%" src="\assets\img\airplane.jpg">
+        </div>
+
+        <p>
+          Traveling just got a lot more fun!
+          <br />
+          Countries Been app will help you make statistic of countries you vistied.
+          <br />
+          Select them and try to fill them all!
+        </p>
+      </div>
+    </ion-slide>
+
+    <ion-slide padding>
+      <div style="height: 100%">
+        <h1>As well a lot more features</h1>
+
+        <div text-center>
+          <img style="width: 100%" src="\assets\img\travel2.jpg">
+        </div>
+
+        <p>Make a list and add your fav pictures of the countries!</p>
+        <p>Should we start our journey?</p>
+        <ion-button color="primary" (click)="GoGo()">Start App</ion-button>
+      </div>
+    </ion-slide>
+
+  </ion-slides>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar style="background-color: #2196F3">
+    <ion-buttons *ngIf="!isEndSlide" slot="start">
+      <ion-button color="dark" (click)="onFooterSkipButtonClick()">Skip</ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button color="dark" (click)="onFooterNextButtonClick()">Next</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

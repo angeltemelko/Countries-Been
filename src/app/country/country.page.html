@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{country.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div style="display: flex; flex-direction: column; align-items: center">
+    <img src="{{country.flag}}" style="width: 64px; height: 64px" />
+    <div>{{country.name}}</div>
+  </div>
+
+  <div class="theGallery">
+    <ion-item>
+      <ion-label><strong>Image Gallery</strong></ion-label>
+    </ion-item>
+    <ion-card color="light" *ngIf="gallery.length == 0">
+      <ion-card-content  text-center>
+        No images in your gallery.
+        <div>
+          Take your first picture/Upload your first picture.
+        </div>
+      </ion-card-content>
+    </ion-card>
+    <div  *ngFor="let item of gallery; index as i">
+      <div class="left"  (click)="navigateImage(item)">
+        <img [src]="item"/>
+      </div>
+      <div div class="right">
+      <ion-button (click)="deleteImage(i)">X</ion-button>
+      </div>
+    </div>
+
+    </div>
+  <ion-fab vertical="bottom" horizontal="end"  slot="fixed">
+    <ion-fab-button> <ion-icon name="add"></ion-icon></ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button (click)="takePhoto()"><ion-icon name="camera"></ion-icon></ion-fab-button>
+      <ion-fab-button (click)="uploadPhoto()"><ion-icon name="images"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>
